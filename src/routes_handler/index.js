@@ -8,7 +8,8 @@ import {
 } from "react-router-dom";
 
 const PrivateRoute = (props) =>{
-    if(props.path === props.location.pathname && props.computedMatch) {
+    console.log(props);
+    if((props.path === props.location.pathname)|| props.computedMatch.isExact) {
         return (
             <Route
                 exact={true}
@@ -52,7 +53,6 @@ const HandleRoutes = (
                                     component={route.component}
                                 />
                             ))}
-
                             <Route render={() => <Redirect to={defaultAuthRoute} />} />
                         </Switch>
                     </MainComponent>

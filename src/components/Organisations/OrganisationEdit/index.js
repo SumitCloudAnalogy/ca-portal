@@ -1,8 +1,8 @@
 import React from 'react';
-const organisation = (props) => (
+const OrganisationEdit = (props) => (
     <div>
-        Organisation
+        OrganisationEdit
     </div>
 );
 
-export default organisation;
+export default OrganisationEdit;

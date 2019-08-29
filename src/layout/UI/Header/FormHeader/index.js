@@ -1,6 +1,7 @@
 import React from 'react';
-import {logo} from '../../../assets/images/logo.svg'
+import {logo} from '../../../../assets/images/logo.svg'
 import './index.scss'
+import constants from "../../../../helpers/constants";
 const FormHeader = (props) => (
     <React.Fragment>
         <div className="FormHeader">
@@ -10,7 +11,7 @@ const FormHeader = (props) => (
             <h1 style={{
                 display: 'flex',
                 marginLeft: '20px',
-                fontSize: '32px'}}>CA-Portal</h1>
+                fontSize: '32px'}}>{constants.TITLE}</h1>
         </div>
         <div style={{textAlign: 'center',
         color: 'rgba(0,0,0,.45)',

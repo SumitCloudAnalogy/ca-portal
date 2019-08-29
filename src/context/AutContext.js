@@ -1,26 +1,28 @@
-import React, { useState } from 'react'
-import ls from '../helpers/ls'
-export const AuthenticatedContext = React.createContext({
-    Authenticated: false,
-    setAuthenticated: (token, status) => {}
+import React, { createContext, memo, useState } from "react";
+import ls from "../helpers/ls";
+
+export const AuthenticatedContext = createContext({
+    authenticated: false,
+    setAuthenticated: () => {}
 });
-
-export const AuthenticatedContextProvider = (props) => {
-    const setAuthenticated = (token, status) => {
-        console.log("token ");
-        status ? ls.set("token", token) : ls.remove('token');
-        setState({...state, Authenticated: status })
+export const AuthenticatedContextProvider = memo(({ children }) => {
+    const setAuthenticated = async (token, user_id) => {
+        !!user_id ? await ls.set("user_id", user_id) : ls.remove("user_id");
+        !!token ? await ls.set("token", token) : ls.remove("token");
+        await setState({
+            ...state,
+            authenticated: !!token
+        });
     };
-    const initState = {
-        Authenticated: false,
+
+    const [state, setState] = useState({
+        authenticated: false,
         setAuthenticated: setAuthenticated
-    };
-
-    const [state, setState] = useState(initState);
+    });
 
     return (
         <AuthenticatedContext.Provider value={state}>
-            {props.children}
+            {children}
         </AuthenticatedContext.Provider>
-    )
-};
+    );
+});

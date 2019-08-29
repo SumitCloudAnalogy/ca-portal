@@ -1,15 +1,12 @@
-.AuthContainer {
-  padding: 30px 0;
-  display: grid;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
+.auth-component-container {
+  & .ant-tabs-nav-scroll {
+    text-align: center;
+  }
 
-}
-.Layout-container {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  overflow-y: scroll;
-  background: #f0f2f5;
+  & .login-container {
+    & .remember-forgot-form-item .ant-form-item-children {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 }

@@ -2,11 +2,11 @@ import React, { memo, useContext, useState } from "react";
 import { Button, Checkbox, Form, Icon, Input, message } from "antd";
 import { NavLink } from "react-router-dom";
 import useReactRouter from "use-react-router";
-import { AuthenticatedContext } from "../../../context/AuthenticatedContext";
 import { useMutation } from "@apollo/react-hooks";
 import { LOGIN } from "../../../graphql/user";
 import showErrors from "../../Utils/showErrors";
 import { subscriptionClient } from "../../../graphql/ApolloClient";
+import {AuthenticatedContext} from "../../../context/AutContext";
 
 const Login = memo(({ form }) => {
   const { getFieldDecorator } = form;
